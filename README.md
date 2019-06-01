@@ -18,3 +18,7 @@ composer require meritoo/admin-bundle
 ```
 
 > [How to install Composer?](https://getcomposer.org/download)
+
+# Development
+
+More information [you can find here](docs/Development.md)
