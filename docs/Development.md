@@ -15,6 +15,12 @@ Development-related information
     docker-compose up -d
     ```
 
+2. Rebuild project by running command (installs packages, prepares required directories and runs tests):
+
+    ```bash
+    docker-compose exec php phing
+    ```
+
 > [What is Docker?](https://www.docker.com/what-docker)
 
 # Composer
@@ -59,6 +65,12 @@ Fix coding standard by running command:
 docker-compose exec php php-cs-fixer fix
 ```
 
+or
+
+```bash
+docker-compose exec php phing -f phing/tests.xml build:fix-coding-standards
+```
+
 Omit cache and run the Fixer from scratch by running command:
 
 ```bash
@@ -81,6 +93,12 @@ Install required packages by running command: `docker-compose run --rm composer 
 docker-compose run --rm phpunit --verbose
 ```
 
+or
+
+```bash
+docker-compose exec php phing -f phing/tests.xml test:phpunit
+```
+
 ##### Quick (without code coverage)
 
 ```bash
@@ -95,6 +113,12 @@ Served by [Infection — Mutation Testing Framework](https://infection.githu
 
 ```bash
 docker-compose exec php vendor/bin/infection --threads=5
+```
+
+or
+
+```bash
+docker-compose exec php phing -f phing/tests.xml test:infection
 ```
 
 ### Result of testing
@@ -120,5 +144,13 @@ Metrics:
 
 * `build/reports/infection/infection-log.txt`
 * `build/reports/infection/summary-log.txt`
+
+# Other
+
+Rebuild project and run tests by running command:
+
+```bash
+docker-compose exec php phing
+```
 
 [&lsaquo; Back to `Readme`](../README.md)
