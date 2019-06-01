@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    #
+    # Required to run project
+    #
+    php:
+        image: meritoo/php7
+        container_name: ${DOCKER_CONTAINER_OWNER}-${DOCKER_CONTAINER_PROJECT}-php
+        entrypoint: php
+        command: -S 0.0.0.0:9999
+        environment:
+            TIMEZONE: ${TIMEZONE}
+        volumes:
+            - .:/var/www/application:cached
+    composer:
+        image: meritoo/php7
+        container_name: ${DOCKER_CONTAINER_OWNER}-${DOCKER_CONTAINER_PROJECT}-composer
+        entrypoint: php -d memory_limit=-1 /usr/local/bin/composer
+        volumes:
+            - .:/var/www/application:cached
