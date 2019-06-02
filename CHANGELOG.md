@@ -2,6 +2,10 @@
 
 Admin panel. Free, customizable. Based on Symfony framework & Bootstrap.
 
+# 0.0.2
+
+1. Update project configuration (project files related to IDE)
+
 # 0.0.1
 
 1. Add this changelog
